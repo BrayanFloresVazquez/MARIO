@@ -1,23 +1,27 @@
 package Clases
 
-open class Enemy (val name: String, val strength:Int){
-    init {
+open class Enemy (val name: String, val strength:Int)
+{
+    init 
+    {
         println("Iniciando superclase")
     }
     protected var direction: String = "Left"
-    protected fun changeDirection(){
+    protected fun changeDirection()
+    {
         direction = if (direction=="Right") "Left" else "Right"
         println("$name va en dirección $direction")
     }
     protected fun die(){
         println("$name ha muerto")
     }
-    open fun collision(collider: String){
-        when (collider){
+    open fun collision(collider: String)
+    {
+        when (collider)
+        {
             "Weapon" -> die()
             "Enemy" -> changeDirection()
         }
     }
 }
 
-//Para que una clase sea una superclase se le tiene que anteceder la palabra open class
